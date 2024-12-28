@@ -1,0 +1,115 @@
+<!-- 
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Election</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Basic Election</h2>
+<p>Vote for your favorite candidate:</p>
+<form id="votingForm">
+    <label>
+        <input type="radio" name="candidate" value="1"> Bugs Bunny
+    </label>
+    <label>
+        <input type="radio" name="candidate" value="2"> Daffy Duck
+    </label>
+    <label>
+        <input type="radio" name="candidate" value="3"> Show Results
+    </label>
+    <br>
+    <button type="button" onclick="castVote()">Submit Vote</button>
+</form>
+
+<div id="resultsContainer"></div>
+
+<script>
+    // Author: OpenAI ChatGPT
+
+    // Variables to store candidate tallies
+    let bugsBunnyVotes = 0;
+    let daffyDuckVotes = 0;
+
+    function castVote() {
+        const form = document.getElementById('votingForm');
+        const selectedValue = form.querySelector('input[name="candidate"]:checked');
+
+        if (selectedValue) {
+            const vote = parseInt(selectedValue.value);
+
+            if (vote === 1) {
+                bugsBunnyVotes++;
+            } else if (vote === 2) {
+                daffyDuckVotes++;
+            } else {
+                displayResults();
+                return;
+            }
+
+            form.reset(); // Reset the form after each vote
+        }
+
+        // Optional: Display current tallies in real-time
+        console.log("Bugs Bunny Votes:", bugsBunnyVotes);
+        console.log("Daffy Duck Votes:", daffyDuckVotes);
+    }
+
+    function displayResults() {
+        const resultsContainer = document.getElementById('resultsContainer');
+        const table = document.createElement('table');
+        const headerRow = table.insertRow(0);
+
+        // Header cells
+        const headerCell1 = headerRow.insertCell(0);
+        const headerCell2 = headerRow.insertCell(1);
+
+        headerCell1.textContent = 'Candidate';
+        headerCell2.textContent = 'Votes';
+
+        // Data cells
+        const bugsRow = table.insertRow(1);
+        const daffyRow = table.insertRow(2);
+
+        const bugsCell1 = bugsRow.insertCell(0);
+        const bugsCell2 = bugsRow.insertCell(1);
+
+        const daffyCell1 = daffyRow.insertCell(0);
+        const daffyCell2 = daffyRow.insertCell(1);
+
+        bugsCell1.textContent = 'Bugs Bunny';
+        bugsCell2.textContent = bugsBunnyVotes;
+
+        daffyCell1.textContent = 'Daffy Duck';
+        daffyCell2.textContent = daffyDuckVotes;
+
+        resultsContainer.innerHTML = ''; // Clear previous results
+        resultsContainer.appendChild(table);
+    }
+</script>
+
+</body>
+</html>

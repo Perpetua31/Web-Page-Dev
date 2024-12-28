@@ -1,0 +1,76 @@
+
+<!-- create HTML and Javascript code on a web page that will conduct a basic election and produce results in a table displayed when the election concludes.
+The input from the voter should be a response to:
+1. Bugs Bunny
+2. Daffy Duck
+if the person enters 1 or 2 update variable holding candidate's tally
+if the person enters 3 show a table in the web page with the results
+any enhancements beyond those basics are at your discretion-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Day</title>
+</head>
+<body>
+   
+
+<h3 style="text-align: center"> Perpetua Senatus </h3> 
+<h4 style="text-align: center">Election Day</h4>
+<h4 style="text-align: center">Bugs Bunny VS Daffy Duck</h4>
+
+<script>
+    var choice;
+    var choice1 = 0;
+    var choice2 = 0;
+
+    do {
+        choice = prompt("What's your choice?\nBugs Bunny(1)\nDaffy Duck(2)\nExit(3)");
+
+        if (choice == 1) {
+            window.alert("One vote for Bugs Bunny");
+            choice1++;
+        } else if (choice == 2) {
+            window.alert("One vote for Daffy Duck");
+            choice2++;
+        }
+    } while (choice != 3);
+     window.alert("Total votes for Bugs Bunny: " + choice1 + "\nTotal votes for Daffy Duck: " + choice2);
+
+    // results table
+    var table = document.createElement('table');
+    table.border = '1';
+    table.style.margin = '20px auto';
+    var states = ['Votes'];
+
+    // Header row
+    var headerRow = table.insertRow();
+    var headerCell1 = headerRow.insertCell(0);
+    var headerCell2 = headerRow.insertCell(1);
+
+    headerCell1.textContent = 'Candidates';
+    headerCell2.textContent = 'Total Votes';
+
+    // Data rows
+    var bugsRow = table.insertRow();
+    var bugsCell1 = bugsRow.insertCell(0);
+    var bugsCell2 = bugsRow.insertCell(1);
+
+    bugsCell1.textContent = 'Bugs Bunny';
+    bugsCell2.textContent = choice1;
+
+    var daphyRow = table.insertRow();
+    var daffyCell1 = daphyRow.insertCell(0);
+    var daffyCell2 = daphyRow.insertCell(1);
+
+    daffyCell1.textContent = 'Daphy Duck';
+    daffyCell2.textContent = choice2;
+
+    document.body.appendChild(table);
+</script>
+
+</body>
+</html>
+

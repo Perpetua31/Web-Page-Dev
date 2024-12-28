@@ -1,0 +1,44 @@
+<!-- 
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+-->
+
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>NumberGuessingGame</title> </head>
+
+<body>
+    <h5 style="text-align: center;"> PERPETUA SENATUS </h5>
+    
+    <h3 style="text-align: center;"> Number Guessing Game </h3>
+    
+    <script>
+        function getNumber(max) {
+            return Math.floor(Math.random() * max) + 1;
+                                }
+
+        var number = getNumber(10); 
+        var guess = 0;
+        var guesses = 0;
+        window.alert("Guess a number from 0 to 10: ");
+
+        do{
+            guess = prompt("Your guess: ");
+            guesses++;
+            if (guess > number) { window.alert("Lower!");} 
+            else if (guess < number) {window.alert("Higher!");}
+           } while (guess != number);
+
+        window.alert("You guessed the right number in " + guesses + " guesses!");
+    </script>
+
+</body>
+
+</html>
+

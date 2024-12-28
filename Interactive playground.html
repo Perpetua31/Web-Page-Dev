@@ -1,0 +1,96 @@
+<!-- 
+create a .html that uses a bunch of stuff you (and we) have played around with already 
+- plus anything else you are inspired to throw in.
+Then submit your html page here.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Playground</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Interactive Playground</h1>
+
+    <form id="interactiveForm">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" placeholder="Your Name" required>
+
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" placeholder="Your Age" required>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <p id="output"></p>
+
+    <p>Check out some interesting websites:</p>
+    <ul>
+        <li><a href="https://en.wikipedia.org/" target="_blank">Wikipedia</a></li>
+        <li><a href="https://news.un.org/en/" target="_blank">UN News</a></li>
+        <li><a href="https://www.kbcc.cuny.edu/index.html" target="_blank">KBCC</a></li>
+        <li><a href="http://catless.ncl.ac.uk/risks/" target="_blank">Comp Risks</a></li>
+    </ul>
+
+    <script>
+        function submitForm() {
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var output = "Hello, " + name + "! You are " + age + " years old.";
+            document.getElementById('output').innerText = output;
+        }
+    </script>
+
+</body>
+
+</html>

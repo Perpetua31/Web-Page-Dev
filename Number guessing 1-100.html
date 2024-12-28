@@ -1,0 +1,53 @@
+<!-- 
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Number Guessing Game</h1>
+  <p>Guess a number between 1 and 100:</p>
+  <input type="number" id="guessInput" min="1" max="100">
+  <button onclick="checkGuess()">Submit Guess</button>
+  <p id="result"></p>
+
+  <script>
+    var targetNumber = Math.floor(Math.random() * 100) + 1;
+
+    function checkGuess() {
+      var userGuess = document.getElementById('guessInput').value;
+      var resultElement = document.getElementById('result');
+
+      if (userGuess === '') {
+        alert('Please enter a number.');
+        return;}
+
+      if (userGuess == targetNumber) {
+        resultElement.innerHTML = 'Congratulations! You guessed the correct number!';
+      } else if (userGuess < targetNumber) {
+        resultElement.innerHTML = 'Too low. Try again!';
+      } else {
+        resultElement.innerHTML = 'Too high. Try again!';
+      }
+    }
+  </script>
+
+</body>
+</html>

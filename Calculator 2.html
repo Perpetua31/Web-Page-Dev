@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+</head>
+<body>
+    <h1>BASIC CALCULATOR</h1>
+    <p>by Perpetua Senatus</p>
+
+    <form id="calculatorForm">
+        <label for="firstNumber">Enter First number</label>
+        <input type="number" id="firstNumber" required>
+
+        <br>
+
+        <label for="secondNumber">Enter Second number</label>
+        <input type="number" id="secondNumber" required>
+
+        <br>
+
+        <button type="button" onclick="calculate('+')">Add</button>
+        <button type="button" onclick="calculate('-')">Subtract</button>
+        <button type="button" onclick="calculate('*')">Multiply</button>
+        <button type="button" onclick="calculate('/')">Divide</button>
+    </form>
+
+    <p id="addResult">First number + Second number = ----</p>
+    <p id="subtractResult">First number - Second number = -----</p>
+    <p id="multiplyResult">First number * Second number = ----</p>
+    <p id="divideResult">First number / Second number = -----</p>
+
+    <script>
+        function calculate(operator) {
+            var firstNumber = parseFloat(document.getElementById('firstNumber').value);
+            var secondNumber = parseFloat(document.getElementById('secondNumber').value);
+
+            if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
+                switch (operator) {
+                    case '+':
+                        document.getElementById('addResult').innerText = `${firstNumber} + ${secondNumber} = ${firstNumber + secondNumber}`;
+                        break;
+                    case '-':
+                        document.getElementById('subtractResult').innerText = `${firstNumber} - ${secondNumber} = ${firstNumber - secondNumber}`;
+                        break;
+                    case '*':
+                        document.getElementById('multiplyResult').innerText = `${firstNumber} * ${secondNumber} = ${firstNumber * secondNumber}`;
+                        break;
+                    case '/':
+                        if (secondNumber !== 0) {
+                            document.getElementById('divideResult').innerText = `${firstNumber} / ${secondNumber} = ${firstNumber / secondNumber}`;
+                        } else {
+                            alert('Cannot divide by zero.');
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                alert('Please enter valid numbers.');
+            }
+        }
+    </script>
+</body>
+</html>
